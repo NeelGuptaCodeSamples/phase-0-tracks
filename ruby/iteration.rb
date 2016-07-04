@@ -40,9 +40,30 @@ player_position = {
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
+# Array delete
+# Before
+p numbers
 
+numbers.each do |number|
+  next if number.even? == true
+  numbers.delete number
+end
 
+# After
+p numbers
 
+# Hash iteration
 
+numbers_hash = {
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6
+}
+
+numbers_hash.delete_if { |int, str| str >= 3 }
+p numbers_hash
 
 

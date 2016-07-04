@@ -17,31 +17,23 @@ def user_interface
 end
 
 def alias_generator(agent_name)
+ vowels = "aeioua"
+ consonants = "bcdfghjklmnpqrstvwxyzb"
+ new_string = ""
 
+ # Original name --> Array
  original_name = agent_name.split(" ")
  p original_name
 
+ # Swap first and last name
  alias_first = original_name.last.split("")
  p alias_first
 
  alias_second = original_name.first.split("")
  p alias_second
 
- i = 0
- vowels_str = "aeioua"
- consonant_str = "bcdfghjklmnpqrstvwxyzb"
- new_string = ""
-
- while i < agent_name.length
 
 
- 	
-  scrambled_first = alias_first.map.with_index do |letter, i|
-  	p letter
-  	p letter.include?(vowels_str)
-
-	end
-	p scrambled_first.join("")
 end
 
 alias_generator("Neel Gupta")

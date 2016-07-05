@@ -17,7 +17,6 @@ def user_interface
 	agent_name = gets.chomp
 
 	alias_generator(agent_name)
-
 end
 
 def alias_generator(agent_name)
@@ -25,30 +24,29 @@ def alias_generator(agent_name)
  consonants = "bcdfghjklmnpqrstvwxyzb"
  new_string = ""
 
- # Original name --> Array
- original_name = agent_name.split(" ")
- p original_name
+	 # Original name --> Array
+	 original_name = agent_name.split(" ")
 
- # Swap first and last name
- alias_first = original_name.last.split("")
- p alias_first
+	 # Swap first and last name
+	 alias_first = original_name.last.split("")
 
- alias_second = original_name.first.split("")
- p alias_second
+	 alias_second = original_name.first.split("")
 
-# Scramble First
- scrambled_first = []
- alias_first.map! do |letter|
- 	scrambled_first << letter.next
- end
- p first = scrambled_first.join("")
+			# Scramble First
+			 scrambled_first = []
+			 alias_first.map! do |letter|
+			 	scrambled_first << letter.next
+			 end
+			 first = scrambled_first.join("")
 
-# Scrambled Second
- scrambled_second = [] 
- alias_second.map! do |letter|
- 	scrambled_second << letter.next
- end
- p second = scrambled_second.join("")
+			# Scrambled Second
+			 scrambled_second = [] 
+			 alias_second.map! do |letter|
+			 	scrambled_second << letter.next
+			 end
+			 second = scrambled_second.join("")
+
+ puts "Your new name is #{first.capitalize} #{second.capitalize}."
 end
 
 user_interface

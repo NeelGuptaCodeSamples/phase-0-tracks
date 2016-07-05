@@ -14,6 +14,10 @@
 
 def user_interface
 	puts "Hello, agent. Enter the name you would like to scramble below."
+	agent_name = gets.chomp
+
+	alias_generator(agent_name)
+
 end
 
 def alias_generator(agent_name)
@@ -47,4 +51,4 @@ def alias_generator(agent_name)
  p second = scrambled_second.join("")
 end
 
-alias_generator("Neel Gupta")
+user_interface

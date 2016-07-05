@@ -32,8 +32,19 @@ def alias_generator(agent_name)
  alias_second = original_name.first.split("")
  p alias_second
 
+# Scramble First
+ scrambled_first = []
+ alias_first.map! do |letter|
+ 	scrambled_first << letter.next
+ end
+ p first = scrambled_first.join("")
 
-
+# Scrambled Second
+ scrambled_second = [] 
+ alias_second.map! do |letter|
+ 	scrambled_second << letter.next
+ end
+ p second = scrambled_second.join("")
 end
 
 alias_generator("Neel Gupta")

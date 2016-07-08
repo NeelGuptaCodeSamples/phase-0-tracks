@@ -43,8 +43,11 @@ class FootballClub
     @starting_xi << player
   end
 
-  def score
-    puts "#{player} has scored!"
+  def sell_player(player, price)
+    # Check if the player is on the team_roster
+    # If not, error message
+    # If yes, remove player from team roster
+    # Add price to spending_cap
   end
 
   def substitute(player_off, player_on)
@@ -68,6 +71,9 @@ end
 arsenal = FootballClub.new("Arsenal", "Arsene Wenger", 50)
 p arsenal.team_name
 p arsenal.spending_cap
+arsenal.add_to_roster("Santi Cazorla")
+p arsenal.team_roster
+p arsenal.starting_xi
 
 # Use class in program
 

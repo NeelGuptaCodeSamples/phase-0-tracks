@@ -1,4 +1,6 @@
 class Santa
+  attr_reader :age, :ethnicity
+  attr_accessor :gender
   
   def initialize(ethnicity, gender)
     # puts "initializing Santa class..."
@@ -28,19 +30,6 @@ class Santa
     @reindeer_ranking.pop(moved_reindeer)
     # p @reindeer_ranking
     reindeer_name
-  end
-
-  def age
-    @age
-  end
-
-  def ethnicity
-    @ethnicity
-  end
-
-  # Setters
-  def gender=(new_gender)
-    @gender = new_gender
   end
 
 end

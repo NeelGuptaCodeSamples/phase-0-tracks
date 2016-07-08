@@ -51,11 +51,11 @@ santas = []
 sample_genders = ["agender", "bigender", "male", "female", "gender fluid", "N/A"]
 sample_ethnicity = ["black", "latino", "white", "Asian", "prefer not to say", "Mystical Creature", "N/A"]
 
-sample_ethnicity.length.times do |i|
-  santas << Santa.new(sample_genders[i], sample_ethnicity[i])
+20.times do |i|
+  santas << Santa.new(sample_genders.sample, sample_ethnicity.sample)
 end
 
-# p santas
+p santas
 
 santa = Santa.new("Male", "Indian")
 santa.celebrate_birthday

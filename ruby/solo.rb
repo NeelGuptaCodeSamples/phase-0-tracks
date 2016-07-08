@@ -25,7 +25,7 @@ class FootballClub
   attr_accessor :coach, :spending_cap
 
   def initialize(team_name, coach, spending_cap)
-    puts "Initializing FootballClub class..."
+    # puts "Initializing FootballClub class..."
     @team_name = team_name
     @coach = coach
     @spending_cap = spending_cap
@@ -66,14 +66,75 @@ class FootballClub
     # Print remaining spending_cap
   end
 
+  def team_data
+  end
+
 end
 
-arsenal = FootballClub.new("Arsenal", "Arsene Wenger", 50)
-p arsenal.team_name
-p arsenal.spending_cap
-arsenal.add_to_roster("Santi Cazorla")
-p arsenal.team_roster
-p arsenal.starting_xi
+# Test code
+# arsenal = FootballClub.new("Arsenal", "Arsene Wenger", 50)
+# p arsenal.team_name
+# p arsenal.spending_cap
+# arsenal.add_to_roster("Santi Cazorla")
+# p arsenal.team_roster
+# p arsenal.starting_xi
 
-# Use class in program
+# User Interface
+def user_interface
+  puts "---------------------------------------"
+  puts "CREATE YOUR OWN FOOTBALL TEAM!"
+  puts "---------------------------------------"
+  puts "Here is the information we need:"
+  puts "1. Team name"
+  puts "2. Coach"
+  puts "3. Players"
+  puts "4. Spending Capacity"
+  puts "If you want to create a random team, type 'random'."
+  puts "Or, type 'done' to view your creations and end the program."
+
+
+  create_team
+
+  def done
+    puts "ending program"
+  end
+
+end
+
+
+def create_team
+  teams = []
+  puts "What would you like to name your team?"
+  t_name = gets.chomp
+
+  puts "Who is your coach?"
+  coach = gets.chomp
+
+  puts "What is your team's spending capacity?"
+  spending_cap = gets.to_i
+
+  user_team = FootballClub.new(t_name, coach, spending_cap)
+  p user_team
+
+  teams << user_team
+  p teams
+
+  user_interface
+
+  def done
+    puts "ending program"
+  end
+
+end
+
+
+
+
+# p t_name
+# p coach
+# p spending_cap
+user_interface
+
+
+
 

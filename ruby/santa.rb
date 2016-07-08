@@ -1,5 +1,5 @@
 class Santa
-  attr_reader :age, :ethnicity
+  attr_reader :ethnicity, :age
   attr_accessor :gender
   
   def initialize(ethnicity, gender)
@@ -7,7 +7,9 @@ class Santa
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @age = Random.new
+    @age = @age.rand(140)
+
   end
 
   def speak
@@ -55,12 +57,16 @@ sample_ethnicity = ["black", "latino", "white", "Asian", "prefer not to say", "M
   santas << Santa.new(sample_genders.sample, sample_ethnicity.sample)
 end
 
-p santas
+# p santas
+# RANDOM AGES
+p santas[0].age
+p santas[1].age
+p santas[2].age
 
 santa = Santa.new("Male", "Indian")
 santa.celebrate_birthday
 santa.get_mad_at("Vixen")
-santa.age
+p santa.age
 santa.ethnicity
 santa.gender = "New gender"
 

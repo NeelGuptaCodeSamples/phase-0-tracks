@@ -35,18 +35,33 @@ class FootballClub
 
   end
 
-  def pick_team
+  def add_to_roster(player)
+    @team_roster << player
+  end
+
+  def add_to_xi(player)
+    @starting_xi << player
   end
 
   def score
+    puts "#{player} has scored!"
   end
 
-  def substitute(player)
+  def substitute(player_off, player_on)
+    # Check if player is on the bench
+    # Check if player is on the pitch
+    # Replace player_off with player_on in starting_xi
+    # Replace player_on with player_off in bench
+    # Print new starting_xi
+    # Print new bench
   end
 
-  def buy_player(price)
+  def buy_player(player, price)
+    # Check if price is within spending_cap
+    # If so, add player to team roster
+    # Subtract price of player from spending_cap
+    # Print remaining spending_cap
   end
-
 
 end
 

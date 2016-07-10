@@ -21,17 +21,19 @@
 
 # Write Class
 class FootballClub
-  attr_reader :team_name, :team_roster, :starting_xi, :bench
-  attr_accessor :coach, :spending_cap
+  attr_reader :starting_xi, :bench
+  attr_accessor :coach, :spending_cap, :team_name, :team_roster, :all_teams
 
-  def initialize(team_name, coach)
+  def initialize(team_name, coach, team_roster)
     # puts "Initializing FootballClub class..."
     @team_name = team_name
     @coach = coach
+    @team_roster = team_roster
     @spending_cap = spending_cap
-    @team_roster = []
-    @starting_xi = []
-    @bench = []
+    # @starting_xi = []
+    # @bench = []
+    @all_teams = []
+    
 
   end
 
@@ -68,39 +70,37 @@ class FootballClub
   end
 
   def team_data
+    puts "Team Name: #{@team_name}"
+    puts "Coach: #{@coach}"
+    puts "Team Roster: #{@team_roster}"
+  end
+
+  def done
+    puts "ending program"
   end
 
 end
 
-# Test code
-# arsenal = FootballClub.new("Arsenal", "Arsene Wenger", 50)
-# p arsenal.team_name
-# p arsenal.spending_cap
-# arsenal.add_to_roster("Santi Cazorla")
-# p arsenal.team_roster
-# p arsenal.starting_xi
-
-
 ###
 # User Interface
 def user_interface
+  @epl_players = ["Eden Hazard", "Alexis Sanchez", "Olivier Giroud", "Santi Cazorla", "Hector Bellerin", "Takuma Asano", "Wayne Rooney", "Zlatan Ibrahimovic", "Harry Kane", "Raheem Sterling", "Diego Costa", "James Rodriguez", "Aaron Ramsey", "Thomas Koscielny", "Gabriel", "Jamie Vardy", "Daniel Sturrige"]
+
   puts "---------------------------------------"
   puts "CREATE YOUR OWN FOOTBALL TEAM!"
   puts "---------------------------------------"
-  puts "Here is the information we need:"
-  puts "1. Team name"
-  puts "2. Coach"
-  puts "3. Players"
-  puts "4. Spending Capacity"
-  puts "If you want to create a random team, type 'random'."
-  puts "Or, type 'done' to view your creations and end the program."
+  puts "What would you like to name it?"
+  t_name = gets.chomp
+  puts "Who is the coach?"
+  coach = gets.chomp
+  puts "How many players would you like to start with (maximum 8)"
+  n_players = gets.to_i
+  players = @epl_players.sample(n_players)
+  create_team(t_name, coach, players)
+  puts "How many teams would you like to randomize?"
+  n_times = gets.to_i
+  randomize_team(n_times)
 
-
-  # create_team
-
-  randomize_team
-
-  done
 
 end
 
@@ -109,52 +109,42 @@ end
 def done
   puts "ending program"
 end
-###
-
-def create_team
-  teams = []
-  # puts "What would you like to name your team?"
-  # t_name = gets.chomp
-
-  # puts "Who is your coach?"
-  # coach = gets.chomp
-
-  # puts "What is your team's spending capacity?"
-  # spending_cap = gets.to_i
-
-  user_team = FootballClub.new(t_name, coach)
-  p user_team
-
-  random_players = []
 
 
+def create_team(t_name, coach, players)
+  @all_teams = []
 
-  teams << user_team
-  p teams
+  user_team = FootballClub.new(t_name, coach, players)
+  puts user_team.team_data
 
-  # user_interface
 
-  def done
-    puts "ending program"
-  end
+  @all_teams << user_team
+  puts "All Teams:"
+  p @all_teams
 end
 
-def randomize_team
-  epl_teams = ["Liverpool", "Chelsea", "Arsenal", "West Ham", "Manchester United", "Man City", "Leiscester City", "Tottenham Hotspur", "South Hampton", "West Brom", "Stoke City", "Aston Villa"]
-  epl_coaches = ["Arsene Wenger", "Jose Mourinho", "Pep Guordiola", "Louis Van Gaal", "Gus Hiddiks", "Mauricio Pochettino", "Jurgen Klopp", "Claudio Ranieri"]
-  epl_players = ["Eden Hazard", "Alexis Sanchez", "Olivier Giroud", "Santi Cazorla", "Hector Bellerin", "Takuma Asano", "Wayne Rooney", "Zlatan Ibrahimovic", "Harry Kane", "Raheem Sterling", "Diego Costa", "James Rodriguez", "Aaron Ramsey", "Thomas Koscielny", "Gabriel", "Jamie Vardy", "Daniel Sturrige"]
-  spending_cap = Random.new
-  # spending_cap = spending_cap(200)
+def randomize_team(n)
+    @all_teams = []
 
-  
-  10.times do |team, coach, player|
-    team = epl_teams.sample
-    coach = epl_coaches.sample
-    players = epl_players.sample(8)
-    
+    @epl_teams = ["Liverpool", "Chelsea", "Arsenal", "West Ham", "Manchester United", "Man City", "Leiscester City", "Tottenham Hotspur", "South Hampton", "West Brom", "Stoke City", "Aston Villa"]
+
+    @epl_coaches = ["Arsene Wenger", "Jose Mourinho", "Pep Guordiola", "Louis Van Gaal", "Gus Hiddiks", "Mauricio Pochettino", "Jurgen Klopp", "Claudio Ranieri"]
+
+    @epl_players = ["Eden Hazard", "Alexis Sanchez", "Olivier Giroud", "Santi Cazorla", "Hector Bellerin", "Takuma Asano", "Wayne Rooney", "Zlatan Ibrahimovic", "Harry Kane", "Raheem Sterling", "Diego Costa", "James Rodriguez", "Aaron Ramsey", "Thomas Koscielny", "Gabriel", "Jamie Vardy", "Daniel Sturrige"]
+
+
+  n.times do |team, coach, players|
+    team = @epl_teams.sample
+    coach = @epl_coaches.sample
+    players = @epl_players.sample(8)
+    r_team = FootballClub.new(team, coach, players)
+    @all_teams << r_team
   end
 
+  puts "Here is a list of all the teams you've created:"
+  puts "#{@all_teams}"
 end
+
 ### Driver code
 user_interface
 

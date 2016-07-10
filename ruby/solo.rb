@@ -24,7 +24,7 @@ class FootballClub
   attr_reader :team_name, :team_roster, :starting_xi, :bench
   attr_accessor :coach, :spending_cap
 
-  def initialize(team_name, coach, spending_cap)
+  def initialize(team_name, coach)
     # puts "Initializing FootballClub class..."
     @team_name = team_name
     @coach = coach
@@ -45,6 +45,7 @@ class FootballClub
 
   def sell_player(player, price)
     # Check if the player is on the team_roster
+    p @team_roster.include?(player)
     # If not, error message
     # If yes, remove player from team roster
     # Add price to spending_cap
@@ -79,6 +80,8 @@ end
 # p arsenal.team_roster
 # p arsenal.starting_xi
 
+
+###
 # User Interface
 def user_interface
   puts "---------------------------------------"
@@ -93,46 +96,66 @@ def user_interface
   puts "Or, type 'done' to view your creations and end the program."
 
 
-  create_team
+  # create_team
 
-  def done
-    puts "ending program"
-  end
+  randomize_team
+
+  done
 
 end
 
+###
+# Exit program method
+def done
+  puts "ending program"
+end
+###
 
 def create_team
   teams = []
-  puts "What would you like to name your team?"
-  t_name = gets.chomp
+  # puts "What would you like to name your team?"
+  # t_name = gets.chomp
 
-  puts "Who is your coach?"
-  coach = gets.chomp
+  # puts "Who is your coach?"
+  # coach = gets.chomp
 
-  puts "What is your team's spending capacity?"
-  spending_cap = gets.to_i
+  # puts "What is your team's spending capacity?"
+  # spending_cap = gets.to_i
 
-  user_team = FootballClub.new(t_name, coach, spending_cap)
+  user_team = FootballClub.new(t_name, coach)
   p user_team
+
+  random_players = []
+
+
 
   teams << user_team
   p teams
 
-  user_interface
+  # user_interface
 
   def done
     puts "ending program"
   end
-
 end
 
+def randomize_team
+  epl_teams = ["Liverpool", "Chelsea", "Arsenal", "West Ham", "Manchester United", "Man City", "Leiscester City", "Tottenham Hotspur", "South Hampton", "West Brom", "Stoke City", "Aston Villa"]
+  epl_coaches = ["Arsene Wenger", "Jose Mourinho", "Pep Guordiola", "Louis Van Gaal", "Gus Hiddiks", "Mauricio Pochettino", "Jurgen Klopp", "Claudio Ranieri"]
+  epl_players = ["Eden Hazard", "Alexis Sanchez", "Olivier Giroud", "Santi Cazorla", "Hector Bellerin", "Takuma Asano", "Wayne Rooney", "Zlatan Ibrahimovic", "Harry Kane", "Raheem Sterling", "Diego Costa", "James Rodriguez", "Aaron Ramsey", "Thomas Koscielny", "Gabriel", "Jamie Vardy", "Daniel Sturrige"]
+  spending_cap = Random.new
+  # spending_cap = spending_cap(200)
 
+  
+  10.times do |team, coach, player|
+    team = epl_teams.sample
+    coach = epl_coaches.sample
+    players = epl_players.sample(8)
+    
+  end
 
-
-# p t_name
-# p coach
-# p spending_cap
+end
+### Driver code
 user_interface
 
 

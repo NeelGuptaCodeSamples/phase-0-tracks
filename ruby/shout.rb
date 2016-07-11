@@ -1,14 +1,26 @@
+# RELEASE 0
 module Shout
-  def self.yell_angrily(words)
+  def yell_angrily(words)
     words + "!!!" + " :("
   end
 
-  def self.yell_happily(words)
+  def yell_happily(words)
     words + "!!!" + " :)"
   end
 end
 
-Shout.yell_happily("NEEL")
+class Boss
+  include Shout
+end
 
-Shout.yell_angrily("NEEL")
+class Coach
+  include Shout
+end
 
+boss = Boss.new
+boss.yell_angrily("You're late")
+boss.yell_happily("Good job")
+
+coach = Coach.new
+coach.yell_angrily("Run faster")
+coach.yell_happily("Well done")

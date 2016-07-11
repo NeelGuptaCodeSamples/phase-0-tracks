@@ -8,5 +8,7 @@ module Shout
   end
 end
 
+Shout.yell_happily("NEEL")
 
+Shout.yell_angrily("NEEL")
 

@@ -25,16 +25,14 @@ class FootballClub
   attr_accessor :coach, :spending_cap, :team_name, :team_roster, :all_teams
 
   def initialize(team_name, coach, team_roster)
-    # puts "Initializing FootballClub class..."
+    puts "Initializing FootballClub class..."
     @team_name = team_name
     @coach = coach
     @team_roster = team_roster
-    @spending_cap = spending_cap
-    # @starting_xi = []
+    # @spending_cap = spending_cap
+    @starting_xi = 11
     # @bench = []
-    @all_teams = []
-    
-
+    @all_teams = []    
   end
 
   def add_to_roster(player)
@@ -100,8 +98,6 @@ def user_interface
   puts "How many teams would you like to randomize?"
   n_times = gets.to_i
   randomize_team(n_times)
-
-
 end
 
 ###
@@ -124,8 +120,6 @@ def create_team(t_name, coach, players)
 end
 
 def randomize_team(n)
-    @all_teams = []
-
     @epl_teams = ["Liverpool", "Chelsea", "Arsenal", "West Ham", "Manchester United", "Man City", "Leiscester City", "Tottenham Hotspur", "South Hampton", "West Brom", "Stoke City", "Aston Villa"]
 
     @epl_coaches = ["Arsene Wenger", "Jose Mourinho", "Pep Guordiola", "Louis Van Gaal", "Gus Hiddiks", "Mauricio Pochettino", "Jurgen Klopp", "Claudio Ranieri"]

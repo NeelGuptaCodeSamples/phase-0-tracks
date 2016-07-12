@@ -1,7 +1,7 @@
 # Method to create a list
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
 # steps: 
-  # [fill in any steps here]
+  # convert to hash
   # set default quantity
   # print the list to the console [can you use one of your other methods here?]
 # output: hash?
@@ -30,6 +30,48 @@
 # output: updated list, hash
 
 # Method to print a list and make it look pretty
-# input:
-# steps:
-# output:
+# input: updated version of the list
+# steps: format the elements of the hash
+  # 1 > Name of List
+    # > Item --> Quantity
+    # > Item --> Quantity
+    # etc.
+# output: "pretty" hash
+
+puts "What would you like to add to your grocery list? (add each item with one space between)."
+list_string = gets.chomp
+puts "List string:"
+p list_string
+
+l_array = list_string.split(" ")
+puts "List array:" 
+p l_array
+array_length = l_array.length
+
+list = {}
+i = 0
+item = l_array[i]
+until i == array_length
+  list[:item] = list.default
+  i += 1
+  p list.keys
+end
+
+puts "Each:"
+l_array.each do |item, quantity|
+  puts "#{item}: ##{quantity}"
+
+end
+
+# p list
+
+
+
+
+
+
+
+
+
+
+

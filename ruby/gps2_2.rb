@@ -38,37 +38,47 @@
     # etc.
 # output: "pretty" hash
 
-puts "What would you like to add to your grocery list? (add each item with one space between)."
-list_string = gets.chomp
-puts "List string:"
-p list_string
-
-l_array = list_string.split(" ")
-puts "List array:" 
-p l_array
-array_length = l_array.length
-
-list = {}
-i = 0
-item = l_array[i]
-until i == array_length
-  list[:item] = list.default
-  i += 1
-  p list.keys
+def create_list(item)
+  list = {}
+  new_item = item.split(" ")
+  
+  new_item.each do |food|
+    list[food] = 0
+  end
+  return list
 end
 
-puts "Each:"
-l_array.each do |item, quantity|
-  puts "#{item}: ##{quantity}"
-
+def add_to_list(grocery, item, q_item=0)
+  grocery[item] = q_item
 end
 
-# p list
+def remove_from_list(grocery, item)
+  grocery.delete(item)
+end
 
+def update_quantity(grocery, item, new_quantity)
+  grocery[item] = new_quantity
+end
 
+def print_list(grocery)
+  grocery.each do |item, quantity|
+    puts "We need #{quantity} #{item}."
+  end
+end
 
+grocery = create_list("")
+# create_list("Neel")
 
+add_to_list(grocery, "Lemonade", 2)
+add_to_list(grocery, "Tomatoes", 3)
+add_to_list(grocery, "Onion", 1)
+add_to_list(grocery, "Ice Cream", 4)
 
+remove_from_list(grocery, "Lemonade")
+
+update_quantity(grocery, "Ice Cream", 1)
+
+print_list(grocery)
 
 
 

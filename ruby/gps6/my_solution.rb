@@ -101,7 +101,13 @@ end
 
 #=======================================================================
 # Reflection Section
-
+# 1. The difference between the two different hash syntaxes 
+# shown in the state_data file are the use of the rocket (=>) 
+# and ':symbol' syntax
+# 2. require_relative links the data file to this program
+# 3. .each, .times
+# 4. repetition of instance variables
+# 5. Using a pre-set data structure that is realistic
 
 
 

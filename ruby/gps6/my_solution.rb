@@ -20,47 +20,50 @@ class VirusPredictor
   # Brings together the 2 effects below (predicted_deaths / speed_of_spread)
   # includes variables passed through by user (instance variables)
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
+  # this indicates that the methods following this are only accessible within the class
 
   # Predicts number of deaths based on pop density, population, and state
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths 
     # predicted deaths is solely based on population density
     if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
+      x = 0.4
     elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
+      x = 0.3
     elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
+      x = 0.2
     elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+      x = 0.1
     else
-      number_of_deaths = (@population * 0.05).floor
+      x = 0.05
     end
 
+    number_of_deaths = (@population * x).floor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
 
-  # Determines the multiplier effect of the "spread", to be used in virus_effects method ^^
-  def speed_of_spread(population_density, state) #in months
+  # Determines the multiplier effect of the "spread", 
+  # to be used in virus_effects method ^^
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
 
     if @population_density >= 200
-      speed += 0.5
+      speed = 0.5
     elsif @population_density >= 150
-      speed += 1
+      speed = 1
     elsif @population_density >= 100
-      speed += 1.5
+      speed = 1.5
     elsif @population_density >= 50
-      speed += 2
+      speed = 2
     else
-      speed += 2.5
+      speed = 2.5
     end
 
     puts " and will spread across the state in #{speed} months.\n\n"
@@ -93,7 +96,16 @@ alaska.virus_effects
   p_density = STATE_DATA[state][:population_density]
   pop = STATE_DATA[state][:population]
   random_state = VirusPredictor.new(state, p_density, pop)
+  random_state.virus_effects
 end
 
 #=======================================================================
 # Reflection Section
+
+
+
+
+
+
+
+

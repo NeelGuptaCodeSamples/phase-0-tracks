@@ -88,8 +88,11 @@ alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density],
 alaska.virus_effects
 
 
-50.times do |state, population_density, population|
-
+50.times do |state, p_density, pop|
+  state = STATE_DATA.keys.sample
+  p_density = STATE_DATA[state][:population_density]
+  pop = STATE_DATA[state][:population]
+  random_state = VirusPredictor.new(state, p_density, pop)
 end
 
 #=======================================================================

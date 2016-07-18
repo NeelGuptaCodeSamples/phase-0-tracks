@@ -16,3 +16,5 @@ function reverse(word) {
 }
 
 console.log(reverse("Neel"))
+console.log(reverse("welcometothemonkeyhouse"))
+console.log(reverse("helloWorld"))

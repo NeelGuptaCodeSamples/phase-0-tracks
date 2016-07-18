@@ -5,16 +5,14 @@
 //   add it to the front of the word
 // repeat until each letter has been moved.
 
-var word = "neel";
+// var word = "";
 
 function reverse(word) {
-  var reversedWord = "";
+  var splitWord = word.split("");
+  var reversedWord = splitWord.reverse();
+  var joinArray = reversedWord.join("");
   
-  for (var i = 0; i <= word.length; i++) {
-    console.log(i)
-    reversedWord = word.substring(i)
-    return reversedWord  
-  }
+  return joinArray
 }
 
 console.log(reverse("Neel"))

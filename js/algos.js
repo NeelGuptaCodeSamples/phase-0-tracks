@@ -33,9 +33,13 @@ var smallTalk = ["Interesting weather we're having, no?", "blah blah blah", "Wha
 
 // find longest phrase
 function findLongest(phrases) {
-  var longest = phrases.sort(function(first, second) {
-    return second.length - first.length
+
+  var longest = phrases.sort(
+    // sort
+      function(first, second) {
+        return second.length - first.length;
   })
+
   return console.log(longest[0]);
 }
 
@@ -45,11 +49,11 @@ console.log("Goodbyes: " + goodbye);
 console.log("Small Talk: " + smallTalk);
 
 console.log("Longest Greeting: ");
-findLongest(greeting)
+findLongest(greeting);
 
 console.log("Longest Goodbye: "); 
-findLongest(goodbye)
+findLongest(goodbye);
 
 console.log("Longest Small Talk: ");
-findLongest(smallTalk)
+findLongest(smallTalk);
 

@@ -45,11 +45,11 @@ console.log("Goodbyes: " + goodbye);
 console.log("Small Talk: " + smallTalk);
 
 console.log("Longest Greeting: ");
-console.log(findLongest(greeting));
+findLongest(greeting)
 
 console.log("Longest Goodbye: "); 
-console.log(findLongest(goodbye));
+findLongest(goodbye)
 
 console.log("Longest Small Talk: ");
-console.log(findLongest(smallTalk));
+findLongest(smallTalk)
 

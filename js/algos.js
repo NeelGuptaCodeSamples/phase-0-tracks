@@ -43,17 +43,57 @@ function findLongest(phrases) {
   return console.log(longest[0]);
 }
 
+var guestList = {};
+guestList.firstName = "Neel";
+guestList.lastName = "Gupta";
+guestList.age = 24;
+
+console.log(guestList);
+// console.log(guestList.age);
+
+function checkList(inputName, inputAge) {
+  var i = 0;
+  console.log(i);
+  // name checker
+  for (var name in guestList) {
+      if (inputName == guestList.firstName) {
+        console.log("Name Input: " + inputName);
+        console.log("Match? " + true);
+        // return true;
+      }
+      else {
+        console.log("Match? " + false);
+        // return false;
+      }
+  }
+
+  // age checker
+  for (var age in guestList) {
+    if (inputAge == guestList.age) {
+      console.log("Age Input: " + inputAge);
+      console.log("Match? " + true);
+    }
+    else {
+      console.log("Match? " + false);
+    }
+  }
+}
+
+checkList("Neel", 23);
+// checkList("Nel", 25);
+
+
 // Test code
-console.log("Greetings: " + greeting);
-console.log("Goodbyes: " + goodbye);
-console.log("Small Talk: " + smallTalk);
+// console.log("Greetings: " + greeting);
+// console.log("Goodbyes: " + goodbye);
+// console.log("Small Talk: " + smallTalk);
 
-console.log("Longest Greeting: ");
-findLongest(greeting);
+// console.log("Longest Greeting: ");
+// findLongest(greeting);
 
-console.log("Longest Goodbye: "); 
-findLongest(goodbye);
+// console.log("Longest Goodbye: "); 
+// findLongest(goodbye);
 
-console.log("Longest Small Talk: ");
-findLongest(smallTalk);
+// console.log("Longest Small Talk: ");
+// findLongest(smallTalk);
 

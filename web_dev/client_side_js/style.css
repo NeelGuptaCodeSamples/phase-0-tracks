@@ -1,0 +1,118 @@
+/*
+Padding and border added to at least one element
+Margin added to at least one element
+At least one centered element (a footer message can be nice for this)
+A background image on at least one element
+A different font on at least one element
+A few elements styled using a class
+A different color for visited links
+An element styled with an ID
+*/
+
+
+
+body {
+  background-color: #FFF5C3;
+  font-family: helvetica;
+}
+
+h1 {
+  text-align: center;
+  border: 2px solid;
+  display: inline-block;
+  position: relative;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+h2.subheader {
+  text-align: center;
+}
+
+
+
+#intro {
+  text-transform: uppercase;
+}
+
+/*.listPositions {
+  margin-left: 20px;
+  width: 250px;
+  height: 250px;
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  display: block;
+}*/
+
+/*.listPositions {
+    width: 250px;
+  height: 300px;
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+}*/
+
+
+
+li.list {
+  border: 1px solid black;
+  text-align: center;
+  width: 250px;
+  height: 300px;
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+}
+
+li.aboutMe {
+  margin-left: 10%;
+}
+
+p#descriptionAbout {
+  padding-left: 7% 10%;
+  display: block;
+}
+
+.aboutClass {
+  background-color: #add8e6;
+}
+
+.mainAbout {
+  text-align: left;
+  font-weight: oblique;
+}
+
+a {
+  display: block;
+}
+
+a:hover {
+  color: lime;
+}
+
+.video {
+  display: block;
+  vertical-align: top;
+  position: relative;
+  padding: 0% 30%;
+  padding-bottom: 5em;
+}
+
+.sectionTwo {
+  border: 1px solid;
+  display: block;
+  vertical-align: top;
+  padding: 10px;
+
+}
+
+.aboutTable {
+  background-color: #5B88F6;
+}
+
+footer {
+  text-align: center;
+  display: block;
+
+}

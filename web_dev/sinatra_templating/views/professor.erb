@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Professors</title>
+</head>
+<body>
+  <h1>Here is a list of your professors!</h1>
+    <ul>
+      <% @professors.each do |professor| %>
+        <li><%= professor['name'] %>, <%= professor['age'] %>, <%= professor['major'] %></li>
+      <% end %>
+    </ul>
+  <p>Click <a href="professors/new">here</a> to apply for a position.</p>
+</body>
+</html>
